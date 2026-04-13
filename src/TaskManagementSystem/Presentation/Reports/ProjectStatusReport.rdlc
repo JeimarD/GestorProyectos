@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSources>
+    <DataSource Name="DataSet1">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:DataSourceID>6fce7729-a9bd-46a8-a7db-fd7e4ffdb6d1</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <ReportParameters>
+    <ReportParameter Name="GeneratedAt"><DataType>String</DataType><Prompt>GeneratedAt</Prompt><AllowBlank>true</AllowBlank></ReportParameter>
+    <ReportParameter Name="FilterSummary"><DataType>String</DataType><Prompt>FilterSummary</Prompt><AllowBlank>true</AllowBlank></ReportParameter>
+  </ReportParameters>
+  <Body>
+    <ReportItems>
+      <Textbox Name="Title"><CanGrow>true</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>Proyectos y estatus</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>16pt</FontSize><FontWeight>Bold</FontWeight><Color>#0F2A4A</Color></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs><Top>0in</Top><Left>0in</Left><Height>0.32in</Height><Width>10.4in</Width><Style /></Textbox>
+      <Textbox Name="Meta"><CanGrow>true</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>="Generado: " &amp; Parameters!GeneratedAt.Value</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><Color>#4A5C73</Color></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph><Paragraph><TextRuns><TextRun><Value>="Filtros: " &amp; Parameters!FilterSummary.Value</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><Color>#4A5C73</Color></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs><Top>0.35in</Top><Left>0in</Left><Height>0.42in</Height><Width>10.4in</Width><Style /></Textbox>
+      <Tablix Name="ProjectTable">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn><Width>0.55in</Width></TablixColumn>
+            <TablixColumn><Width>1.8in</Width></TablixColumn>
+            <TablixColumn><Width>1.4in</Width></TablixColumn>
+            <TablixColumn><Width>1.1in</Width></TablixColumn>
+            <TablixColumn><Width>0.8in</Width></TablixColumn>
+            <TablixColumn><Width>0.6in</Width></TablixColumn>
+            <TablixColumn><Width>0.9in</Width></TablixColumn>
+            <TablixColumn><Width>0.9in</Width></TablixColumn>
+            <TablixColumn><Width>0.9in</Width></TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow><Height>0.28in</Height><TablixCells>
+              <TablixCell><CellContents><Textbox Name="H1"><CanGrow>true</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>ID</Value><Style><FontFamily>Segoe UI</FontFamily><FontWeight>Bold</FontWeight><FontSize>8.5pt</FontSize><Color>#FFFFFF</Color></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs><Style><BackgroundColor>#1E4D8C</BackgroundColor><Border><Color>#FFFFFF</Color><Style>Solid</Style></Border><PaddingTop>3pt</PaddingTop><PaddingBottom>3pt</PaddingBottom></Style></Textbox></CellContents></TablixCell>
+              <TablixCell><CellContents><Textbox Name="H2"><CanGrow>true</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>Proyecto</Value><Style><FontFamily>Segoe UI</FontFamily><FontWeight>Bold</FontWeight><FontSize>8.5pt</FontSize><Color>#FFFFFF</Color></Style></TextRun></TextRuns><Style /></Paragraph></Paragraphs><Style><BackgroundColor>#1E4D8C</BackgroundColor><Border><Color>#FFFFFF</Color><Style>Solid</Style></Border><PaddingLeft>4pt</PaddingLeft><PaddingTop>3pt</PaddingTop><PaddingBottom>3pt</PaddingBottom></Style></Textbox></CellContents></TablixCell>
+              <TablixCell><CellContents><Textbox Name="H3"><CanGrow>true</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>Cliente</Value><Style><FontFamily>Segoe UI</FontFamily><FontWeight>Bold</FontWeight><FontSize>8.5pt</FontSize><Color>#FFFFFF</Color></Style></TextRun></TextRuns><Style /></Paragraph></Paragraphs><Style><BackgroundColor>#1E4D8C</BackgroundColor><Border><Color>#FFFFFF</Color><Style>Solid</Style></Border><PaddingLeft>4pt</PaddingLeft><PaddingTop>3pt</PaddingTop><PaddingBottom>3pt</PaddingBottom></Style></Textbox></CellContents></TablixCell>
+              <TablixCell><CellContents><Textbox Name="H4"><CanGrow>true</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>Estatus</Value><Style><FontFamily>Segoe UI</FontFamily><FontWeight>Bold</FontWeight><FontSize>8.5pt</FontSize><Color>#FFFFFF</Color></Style></TextRun></TextRuns><Style /></Paragraph></Paragraphs><Style><BackgroundColor>#1E4D8C</BackgroundColor><Border><Color>#FFFFFF</Color><Style>Solid</Style></Border><PaddingLeft>4pt</PaddingLeft><PaddingTop>3pt</PaddingTop><PaddingBottom>3pt</PaddingBottom></Style></Textbox></CellContents></TablixCell>
+              <TablixCell><CellContents><Textbox Name="H5"><CanGrow>true</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>Prioridad</Value><Style><FontFamily>Segoe UI</FontFamily><FontWeight>Bold</FontWeight><FontSize>8.5pt</FontSize><Color>#FFFFFF</Color></Style></TextRun></TextRuns><Style /></Paragraph></Paragraphs><Style><BackgroundColor>#1E4D8C</BackgroundColor><Border><Color>#FFFFFF</Color><Style>Solid</Style></Border><PaddingLeft>4pt</PaddingLeft><PaddingTop>3pt</PaddingTop><PaddingBottom>3pt</PaddingBottom></Style></Textbox></CellContents></TablixCell>
+              <TablixCell><CellContents><Textbox Name="H6"><CanGrow>true</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>%</Value><Style><FontFamily>Segoe UI</FontFamily><FontWeight>Bold</FontWeight><FontSize>8.5pt</FontSize><Color>#FFFFFF</Color></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs><Style><BackgroundColor>#1E4D8C</BackgroundColor><Border><Color>#FFFFFF</Color><Style>Solid</Style></Border><PaddingTop>3pt</PaddingTop><PaddingBottom>3pt</PaddingBottom></Style></Textbox></CellContents></TablixCell>
+              <TablixCell><CellContents><Textbox Name="H7"><CanGrow>true</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>Inicio</Value><Style><FontFamily>Segoe UI</FontFamily><FontWeight>Bold</FontWeight><FontSize>8.5pt</FontSize><Color>#FFFFFF</Color></Style></TextRun></TextRuns><Style /></Paragraph></Paragraphs><Style><BackgroundColor>#1E4D8C</BackgroundColor><Border><Color>#FFFFFF</Color><Style>Solid</Style></Border><PaddingLeft>4pt</PaddingLeft><PaddingTop>3pt</PaddingTop><PaddingBottom>3pt</PaddingBottom></Style></Textbox></CellContents></TablixCell>
+              <TablixCell><CellContents><Textbox Name="H8"><CanGrow>true</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>Fin</Value><Style><FontFamily>Segoe UI</FontFamily><FontWeight>Bold</FontWeight><FontSize>8.5pt</FontSize><Color>#FFFFFF</Color></Style></TextRun></TextRuns><Style /></Paragraph></Paragraphs><Style><BackgroundColor>#1E4D8C</BackgroundColor><Border><Color>#FFFFFF</Color><Style>Solid</Style></Border><PaddingLeft>4pt</PaddingLeft><PaddingTop>3pt</PaddingTop><PaddingBottom>3pt</PaddingBottom></Style></Textbox></CellContents></TablixCell>
+              <TablixCell><CellContents><Textbox Name="H9"><CanGrow>true</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>Condición</Value><Style><FontFamily>Segoe UI</FontFamily><FontWeight>Bold</FontWeight><FontSize>8.5pt</FontSize><Color>#FFFFFF</Color></Style></TextRun></TextRuns><Style /></Paragraph></Paragraphs><Style><BackgroundColor>#1E4D8C</BackgroundColor><Border><Color>#FFFFFF</Color><Style>Solid</Style></Border><PaddingLeft>4pt</PaddingLeft><PaddingTop>3pt</PaddingTop><PaddingBottom>3pt</PaddingBottom></Style></Textbox></CellContents></TablixCell>
+            </TablixCells></TablixRow>
+            <TablixRow><Height>0.25in</Height><TablixCells>
+              <TablixCell><CellContents><Textbox Name="D1"><CanGrow>true</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!ProjectId.Value</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>8.5pt</FontSize></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs><Style><BackgroundColor>=IIF(RowNumber("DetailGroup") Mod 2 = 0, "#F5F8FC", "#FFFFFF")</BackgroundColor><Border><Color>#D7E1ED</Color><Style>Solid</Style></Border></Style></Textbox></CellContents></TablixCell>
+              <TablixCell><CellContents><Textbox Name="D2"><CanGrow>true</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!ProjectName.Value</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>8.5pt</FontSize></Style></TextRun></TextRuns><Style /></Paragraph></Paragraphs><Style><BackgroundColor>=IIF(RowNumber("DetailGroup") Mod 2 = 0, "#F5F8FC", "#FFFFFF")</BackgroundColor><Border><Color>#D7E1ED</Color><Style>Solid</Style></Border><PaddingLeft>4pt</PaddingLeft></Style></Textbox></CellContents></TablixCell>
+              <TablixCell><CellContents><Textbox Name="D3"><CanGrow>true</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!ClientName.Value</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>8.5pt</FontSize></Style></TextRun></TextRuns><Style /></Paragraph></Paragraphs><Style><BackgroundColor>=IIF(RowNumber("DetailGroup") Mod 2 = 0, "#F5F8FC", "#FFFFFF")</BackgroundColor><Border><Color>#D7E1ED</Color><Style>Solid</Style></Border><PaddingLeft>4pt</PaddingLeft></Style></Textbox></CellContents></TablixCell>
+              <TablixCell><CellContents><Textbox Name="D4"><CanGrow>true</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!Status.Value</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>8.5pt</FontSize></Style></TextRun></TextRuns><Style /></Paragraph></Paragraphs><Style><BackgroundColor>=IIF(RowNumber("DetailGroup") Mod 2 = 0, "#F5F8FC", "#FFFFFF")</BackgroundColor><Border><Color>#D7E1ED</Color><Style>Solid</Style></Border><PaddingLeft>4pt</PaddingLeft></Style></Textbox></CellContents></TablixCell>
+              <TablixCell><CellContents><Textbox Name="D5"><CanGrow>true</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!Priority.Value</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>8.5pt</FontSize></Style></TextRun></TextRuns><Style /></Paragraph></Paragraphs><Style><BackgroundColor>=IIF(RowNumber("DetailGroup") Mod 2 = 0, "#F5F8FC", "#FFFFFF")</BackgroundColor><Border><Color>#D7E1ED</Color><Style>Solid</Style></Border><PaddingLeft>4pt</PaddingLeft></Style></Textbox></CellContents></TablixCell>
+              <TablixCell><CellContents><Textbox Name="D6"><CanGrow>true</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!ProgressText.Value</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>8.5pt</FontSize></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs><Style><BackgroundColor>=IIF(RowNumber("DetailGroup") Mod 2 = 0, "#F5F8FC", "#FFFFFF")</BackgroundColor><Border><Color>#D7E1ED</Color><Style>Solid</Style></Border></Style></Textbox></CellContents></TablixCell>
+              <TablixCell><CellContents><Textbox Name="D7"><CanGrow>true</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!StartDate.Value</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>8.5pt</FontSize></Style></TextRun></TextRuns><Style /></Paragraph></Paragraphs><Style><BackgroundColor>=IIF(RowNumber("DetailGroup") Mod 2 = 0, "#F5F8FC", "#FFFFFF")</BackgroundColor><Border><Color>#D7E1ED</Color><Style>Solid</Style></Border><PaddingLeft>4pt</PaddingLeft></Style></Textbox></CellContents></TablixCell>
+              <TablixCell><CellContents><Textbox Name="D8"><CanGrow>true</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!EndDate.Value</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>8.5pt</FontSize></Style></TextRun></TextRuns><Style /></Paragraph></Paragraphs><Style><BackgroundColor>=IIF(RowNumber("DetailGroup") Mod 2 = 0, "#F5F8FC", "#FFFFFF")</BackgroundColor><Border><Color>#D7E1ED</Color><Style>Solid</Style></Border><PaddingLeft>4pt</PaddingLeft></Style></Textbox></CellContents></TablixCell>
+              <TablixCell><CellContents><Textbox Name="D9"><CanGrow>true</CanGrow><Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!DateCondition.Value</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>8.5pt</FontSize></Style></TextRun></TextRuns><Style /></Paragraph></Paragraphs><Style><BackgroundColor>=IIF(RowNumber("DetailGroup") Mod 2 = 0, "#F5F8FC", "#FFFFFF")</BackgroundColor><Border><Color>#D7E1ED</Color><Style>Solid</Style></Border><PaddingLeft>4pt</PaddingLeft></Style></Textbox></CellContents></TablixCell>
+            </TablixCells></TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy><TablixMembers><TablixMember /><TablixMember /><TablixMember /><TablixMember /><TablixMember /><TablixMember /><TablixMember /><TablixMember /><TablixMember /></TablixMembers></TablixColumnHierarchy>
+        <TablixRowHierarchy><TablixMembers><TablixMember><KeepWithGroup>After</KeepWithGroup></TablixMember><TablixMember><Group Name="DetailGroup" /></TablixMember></TablixMembers></TablixRowHierarchy>
+        <DataSetName>ProjectStatusDataSet</DataSetName>
+        <Top>0.9in</Top><Left>0.3in</Left><Height>0.53in</Height><Width>9in</Width><Style />
+      </Tablix>
+    </ReportItems>
+    <Height>1.5in</Height>
+    <Style />
+  </Body>
+  <Width>10.4in</Width>
+  <Page><PageHeight>11in</PageHeight><PageWidth>11in</PageWidth><LeftMargin>0.3in</LeftMargin><RightMargin>0.3in</RightMargin><TopMargin>0.3in</TopMargin><BottomMargin>0.3in</BottomMargin><Style /></Page>
+  <DataSets>
+    <DataSet Name="ProjectStatusDataSet">
+      <Fields>
+        <Field Name="ProjectId"><DataField>ProjectId</DataField><rd:TypeName>System.Int32</rd:TypeName></Field>
+        <Field Name="ProjectName"><DataField>ProjectName</DataField><rd:TypeName>System.String</rd:TypeName></Field>
+        <Field Name="ClientName"><DataField>ClientName</DataField><rd:TypeName>System.String</rd:TypeName></Field>
+        <Field Name="Status"><DataField>Status</DataField><rd:TypeName>System.String</rd:TypeName></Field>
+        <Field Name="Priority"><DataField>Priority</DataField><rd:TypeName>System.String</rd:TypeName></Field>
+        <Field Name="ProgressText"><DataField>ProgressText</DataField><rd:TypeName>System.String</rd:TypeName></Field>
+        <Field Name="StartDate"><DataField>StartDate</DataField><rd:TypeName>System.String</rd:TypeName></Field>
+        <Field Name="EndDate"><DataField>EndDate</DataField><rd:TypeName>System.String</rd:TypeName></Field>
+        <Field Name="DateCondition"><DataField>DateCondition</DataField><rd:TypeName>System.String</rd:TypeName></Field>
+      </Fields>
+      <Query><DataSourceName>DataSet1</DataSourceName><CommandText /></Query>
+    </DataSet>
+  </DataSets>
+  <Language>es-VE</Language>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>f264f4df-9b33-4725-9580-c824ce196312</rd:ReportID>
+</Report>

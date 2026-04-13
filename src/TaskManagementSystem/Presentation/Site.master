@@ -1,0 +1,112 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Presentation.SiteMaster" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><asp:ContentPlaceHolder ID="HeadTitle" runat="server" /></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@0;1" />
+    <link rel="stylesheet" href="~/Content/site.css" runat="server" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+</head>
+<body class="<%= GetBodyCssClass() %>">
+    <form id="form1" runat="server">
+        <div class="dashboard-shell">
+            <button type="button" class="dashboard-mobile-backdrop" id="dashboardMobileBackdrop" aria-label="Cerrar menú"></button>
+            <aside class="dashboard-sidebar">
+                <div class="dashboard-sidebar-inner">
+                    <div class="dashboard-brand">
+                        <div class="dashboard-brand-mark">GP</div>
+                        <div>
+                            <h1>Gestor de Proyectos</h1>
+                            <p>Workspace operativo</p>
+                        </div>
+                        <button type="button" class="dashboard-mobile-close" id="dashboardMobileClose" aria-label="Cerrar menú"><span class="material-symbols-outlined">close</span></button>
+                    </div>
+
+                    <nav class="dashboard-nav">
+                        <a class="dashboard-nav-link <%= GetNavigationClass("dashboard") %>" href="<%= ResolveUrl("~/Pages/Dashboard.aspx") %>"><span class="material-symbols-outlined">dashboard</span><span>Dashboard</span></a>
+                        <a class="dashboard-nav-link <%= GetNavigationClass("projects") %>" href="<%= ResolveUrl("~/Pages/Projects.aspx") %>"><span class="material-symbols-outlined">folder_copy</span><span>Proyectos</span></a>
+                        <% if (ShowUsersNavigation()) { %>
+                        <a class="dashboard-nav-link <%= GetNavigationClass("users") %>" href="<%= ResolveUrl("~/Pages/Users.aspx") %>"><span class="material-symbols-outlined">group</span><span>Usuarios</span></a>
+                        <% } %>
+                        <% if (ShowReportsNavigation()) { %>
+                        <a class="dashboard-nav-link <%= GetNavigationClass("reports") %>" href="<%= ResolveUrl("~/Pages/Reports.aspx") %>"><span class="material-symbols-outlined">assessment</span><span>Reportes</span></a>
+                        <a class="dashboard-nav-link <%= GetNavigationClass("activity") %>" href="<%= ResolveUrl("~/Pages/ActivityHistory.aspx") %>"><span class="material-symbols-outlined">history</span><span>Actividad</span></a>
+                        <% } %>
+                    </nav>
+
+                    <div class="dashboard-sidebar-footer">
+                        <% if (ShowSidebarPrimaryAction()) { %>
+                        <a class="dashboard-create-button" href="<%= ResolveUrl(GetSidebarPrimaryActionUrl()) %>"><span class="material-symbols-outlined">add</span><span><%= GetSidebarPrimaryActionText() %></span></a>
+                        <% } %>
+                        <a class="dashboard-nav-link" href="<%= ResolveUrl("~/Login.aspx?logout=1") %>"><span class="material-symbols-outlined">logout</span><span>Salir</span></a>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="dashboard-main">
+                <header class="dashboard-topbar">
+                    <div class="dashboard-topbar-left">
+                        <button type="button" class="dashboard-mobile-menu-button" id="dashboardMobileMenuButton" aria-label="Abrir menú"><span class="material-symbols-outlined">menu</span></button>
+                        <asp:ContentPlaceHolder ID="TopbarLeftContent" runat="server" />
+                    </div>
+                    <div class="dashboard-layout-right">
+                        <asp:ContentPlaceHolder ID="TopbarActionsContent" runat="server" />
+                        <div class="dashboard-user-chip">
+                            <div class="dashboard-user-avatar"><%= Server.HtmlEncode(GetCurrentUserInitials()) %></div>
+                            <div>
+                                <strong><%= Server.HtmlEncode(GetCurrentUserName()) %></strong>
+                                <span><%= Server.HtmlEncode(GetCurrentRoleName()) %></span>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </main>
+        </div>
+    </form>
+    <script type="text/javascript">
+        (function () {
+            var openButton = document.getElementById("dashboardMobileMenuButton");
+            var closeButton = document.getElementById("dashboardMobileClose");
+            var backdrop = document.getElementById("dashboardMobileBackdrop");
+
+            function closeMenu() {
+                document.body.classList.remove("is-mobile-nav-open");
+            }
+
+            function openMenu() {
+                document.body.classList.add("is-mobile-nav-open");
+            }
+
+            if (openButton) {
+                openButton.addEventListener("click", openMenu);
+            }
+
+            if (closeButton) {
+                closeButton.addEventListener("click", closeMenu);
+            }
+
+            if (backdrop) {
+                backdrop.addEventListener("click", closeMenu);
+            }
+
+            var navLinks = document.querySelectorAll(".dashboard-nav-link");
+            for (var index = 0; index < navLinks.length; index++) {
+                navLinks[index].addEventListener("click", closeMenu);
+            }
+
+            window.addEventListener("resize", function () {
+                if (window.innerWidth > 992) {
+                    closeMenu();
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
